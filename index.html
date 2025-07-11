@@ -33,35 +33,10 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .logo {
-            font-size: 3rem;
-            font-weight: 300;
-            color: #63b3ed;
+        .logo-img {
+            max-width: 400px;
+            height: auto;
             margin-bottom: 10px;
-            position: relative;
-        }
-
-        .logo::after {
-            content: "✦";
-            position: absolute;
-            top: -10px;
-            right: -30px;
-            font-size: 1.5rem;
-            color: #63b3ed;
-            animation: sparkle 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes sparkle {
-            0% { opacity: 0.5; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.2); }
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            font-weight: 300;
-            opacity: 0.9;
-            letter-spacing: 3px;
-            text-transform: uppercase;
         }
 
         .hero {
@@ -289,8 +264,7 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">Constellatio</div>
-            <div class="tagline">Web Marketing</div>
+            <img src="logo.png" alt="Constellatio Web Marketing" class="logo-img" />
         </div>
     </header>
 
@@ -302,7 +276,7 @@
     <section class="container">
         <div class="offers-grid">
             <div class="offer-card">
-                <h3 class="offer-title">OFFRE STRATEGIE GEO</h3>
+                <h3 class="offer-title">OFFRE STRATÉGIE GEO</h3>
                 <p class="offer-description"><strong>Objectif :</strong> poser les bases d'une stratégie GEO performante à partir d'un diagnostic complet et d'actions immédiatement activables.</p>
                 
                 <div class="offer-deliverables">
@@ -343,7 +317,7 @@
             </div>
 
             <div class="offer-card">
-                <h3 class="offer-title">OFFRE PILOTAGE & CREATION DE CONTENUS</h3>
+                <h3 class="offer-title">OFFRE PILOTAGE & CRÉATION DE CONTENUS</h3>
                 <p class="offer-description"><strong>Inclut OFFRE PILOTAGE</strong></p>
                 <p class="offer-description"><strong>Objectif :</strong> alimenter activement l'écosystème IA avec des contenus à forte valeur sémantique et hautement exploitables.</p>
                 
@@ -356,11 +330,11 @@
                     <li>Optimisation "Featured Snippets IA" : contenus conçus pour l'extraction par les LLM</li>
                     <li>Distribution multi-canal : formats prêts à publier sur les espaces digitaux (site, réseaux sociaux, newsletters…)</li>
                 </ul>
-                <div class="offer-price">5 000 € HT/mois</div>
+                <div class="offer-price">5000 € HT/mois</div>
             </div>
 
             <div class="offer-card">
-                <h3 class="offer-title">OFFRE GEO COMPLETE</h3>
+                <h3 class="offer-title">OFFRE GEO COMPLÈTE</h3>
                 <p class="offer-description">Offre sur mesure incluant l'ensemble des volets précédents et allant jusqu'à la prise en main complète de la stratégie GEO.</p>
                 <ul class="offer-features">
                     <li>Définition et pilotage de la stratégie de présence IA de l'entreprise</li>
@@ -377,7 +351,7 @@
 
     <section class="methodology">
         <div class="container">
-            <h2>Méthodologie - OFFRE STRATEGIE GEO</h2>
+            <h2>Méthodologie - OFFRE STRATÉGIE GEO</h2>
             <div class="phases">
                 <div class="phase">
                     <h3>Phase 1 : modélisation ontologique et interface sémantique (ateliers de création d'actifs GEO)</h3>
