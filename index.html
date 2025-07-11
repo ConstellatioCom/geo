@@ -79,7 +79,7 @@
 
         .offers-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             padding: 40px 0;
         }
@@ -305,53 +305,6 @@
                 <h3 class="offer-title">OFFRE STRATEGIE GEO</h3>
                 <p class="offer-description"><strong>Objectif :</strong> poser les bases d'une stratégie GEO performante à partir d'un diagnostic complet et d'actions immédiatement activables.</p>
                 
-                <div class="methodology-in-card">
-                    <h4 style="color: #90cdf4; margin: 20px 0 15px 0; font-size: 1.1rem;">Méthodologie</h4>
-                    
-                    <div style="margin-bottom: 15px;">
-                        <h5 style="color: #63b3ed; margin-bottom: 8px; font-size: 1rem;">Phase 1 : modélisation ontologique et interface sémantique (ateliers de création d'actifs GEO)</h5>
-                        <ul class="offer-features" style="margin-bottom: 10px;">
-                            <li>Cartographie des entités nommées : identification des objets de connaissance d'intérêt pour l'entreprise (établissements, produits…)</li>
-                            <li>Profils d'entités : caractérisation fine de chaque entité</li>
-                            <li>Schéma relationnel : identification des relations sémantiques entre entités</li>
-                            <li>Singularités : détermination des traits distinctifs et signaux différenciants</li>
-                            <li>Mesure : identification des aspects mesurables et de leur chiffre</li>
-                            <li>Référentiel verbal : constitution d'un lexique thématique, mots-clés et paramètres de génération de prompts</li>
-                        </ul>
-                        <p style="font-size: 0.9em; opacity: 0.9;"><strong>Modalités spécifiques :</strong> un ou plusieurs ateliers menés avec les parties prenantes internes.</p>
-                        <p style="font-size: 0.9em; opacity: 0.9;"><strong>Objectif :</strong> structurer finement les actifs informationnels de l'entreprise pour en favoriser la reconnaissance par les IA génératives et les moteurs sémantiques.</p>
-                    </div>
-                    
-                    <div style="margin-bottom: 15px;">
-                        <h5 style="color: #63b3ed; margin-bottom: 8px; font-size: 1rem;">Phase 2 : identification de thématiques-clés</h5>
-                        <ul class="offer-features" style="margin-bottom: 10px;">
-                            <li>Audit complet des thématiques métiers</li>
-                            <li>Exploration des thématiques afférentes aux IA génératives</li>
-                            <li>Cartographie des sujets à fort potentiel pour le positionnement GEO</li>
-                        </ul>
-                        <p style="font-size: 0.9em; opacity: 0.9;"><strong>Objectif :</strong> identifier les thématiques stratégiques correspondant aux recherches effectuées par les cibles au sein des IA génératives.</p>
-                    </div>
-                    
-                    <div style="margin-bottom: 15px;">
-                        <h5 style="color: #63b3ed; margin-bottom: 8px; font-size: 1rem;">Phase 3 : analyse de présence IA vs concurrence</h5>
-                        <ul class="offer-features" style="margin-bottom: 10px;">
-                            <li>Analyse de visibilité dans les réponses génératives (LLM) : analyse de présence au sein de ChatGPT, Claude, Gemini, Perplexity</li>
-                            <li>Audit de présence sur sujets-clés métier</li>
-                            <li>Identification des lacunes et opportunités de contenu</li>
-                            <li>Benchmark concurrentiel IA : positionnement vs. 3 concurrents principaux</li>
-                            <li>Analyse de sentiment : tonalité des mentions dans les réponses génératives</li>
-                            <li>Cartographie des requêtes : questions populaires dans les LLM/thématiques nouvelles à aborder</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="margin-bottom: 15px;">
-                        <h5 style="color: #63b3ed; margin-bottom: 8px; font-size: 1rem;">Phase 4 : élaboration de la stratégie GEO</h5>
-                        <ul class="offer-features" style="margin-bottom: 10px;">
-                            <li>Rapport stratégique GEO incluant la feuille de route</li>
-                        </ul>
-                    </div>
-                </div>
-                
                 <div class="offer-deliverables">
                     <strong>Formats de livrables</strong>
                     <ul>
@@ -418,6 +371,56 @@
                 </ul>
                 <p style="margin-top: 15px;"><strong>Objectif :</strong> garantir une présence forte, structurée et cohérente dans les écosystèmes d'intelligence artificielle, en intégrant tous les leviers de notoriété et d'autorité.</p>
                 <div class="offer-price">Prix : sur devis</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="methodology">
+        <div class="container">
+            <h2>Méthodologie - OFFRE STRATEGIE GEO</h2>
+            <div class="phases">
+                <div class="phase">
+                    <h3>Phase 1 : modélisation ontologique et interface sémantique (ateliers de création d'actifs GEO)</h3>
+                    <ul>
+                        <li>Cartographie des entités nommées : identification des objets de connaissance d'intérêt pour l'entreprise (établissements, produits…)</li>
+                        <li>Profils d'entités : caractérisation fine de chaque entité</li>
+                        <li>Schéma relationnel : identification des relations sémantiques entre entités</li>
+                        <li>Singularités : détermination des traits distinctifs et signaux différenciants</li>
+                        <li>Mesure : identification des aspects mesurables et de leur chiffre</li>
+                        <li>Référentiel verbal : constitution d'un lexique thématique, mots-clés et paramètres de génération de prompts</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>Modalités spécifiques :</strong> un ou plusieurs ateliers menés avec les parties prenantes internes.</p>
+                    <p><strong>Objectif :</strong> structurer finement les actifs informationnels de l'entreprise pour en favoriser la reconnaissance par les IA génératives et les moteurs sémantiques.</p>
+                </div>
+                
+                <div class="phase">
+                    <h3>Phase 2 : identification de thématiques-clés</h3>
+                    <ul>
+                        <li>Audit complet des thématiques métiers</li>
+                        <li>Exploration des thématiques afférentes aux IA génératives</li>
+                        <li>Cartographie des sujets à fort potentiel pour le positionnement GEO</li>
+                    </ul>
+                    <p><strong>Objectif :</strong> identifier les thématiques stratégiques correspondant aux recherches effectuées par les cibles au sein des IA génératives.</p>
+                </div>
+                
+                <div class="phase">
+                    <h3>Phase 3 : analyse de présence IA vs concurrence</h3>
+                    <ul>
+                        <li>Analyse de visibilité dans les réponses génératives (LLM) : analyse de présence au sein de ChatGPT, Claude, Gemini, Perplexity</li>
+                        <li>Audit de présence sur sujets-clés métier</li>
+                        <li>Identification des lacunes et opportunités de contenu</li>
+                        <li>Benchmark concurrentiel IA : positionnement vs. 3 concurrents principaux</li>
+                        <li>Analyse de sentiment : tonalité des mentions dans les réponses génératives</li>
+                        <li>Cartographie des requêtes : questions populaires dans les LLM/thématiques nouvelles à aborder</li>
+                    </ul>
+                </div>
+                
+                <div class="phase">
+                    <h3>Phase 4 : élaboration de la stratégie GEO</h3>
+                    <ul>
+                        <li>Rapport stratégique GEO incluant la feuille de route</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
