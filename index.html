@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offres Stratégie GEO - Constellatio Web Marketing</title>
     <style>
+        /* Variables CSS pour un style cohérent */
+        :root {
+            --color-primary: #63b3ed;
+            --color-secondary: #90cdf4;
+            --color-text: #ffffff;
+            --color-background-dark: #1a365d;
+            --color-background-medium: #2c5282;
+            --color-background-light: #3182ce;
+            --card-background: rgba(255, 255, 255, 0.1);
+            --border-color: rgba(255, 255, 255, 0.2);
+            --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.25);
+            --shadow-hover: 0 18px 35px rgba(0, 0, 0, 0.35);
+        }
+
         /* Styles de base pour toute la page */
         * {
             margin: 0;
@@ -14,10 +28,11 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, var(--color-background-dark), var(--color-background-medium), var(--color-background-light));
+            color: var(--color-text);
             line-height: 1.6;
             min-height: 100vh;
+            padding-top: 70px; /* Espace pour le menu fixe */
         }
 
         .container {
@@ -26,36 +41,53 @@
             padding: 0 20px;
         }
 
-        /* En-tête de la page */
+        /* --- En-tête avec navigation fixe --- */
         header {
-            padding: 40px 0;
+            padding: 20px 0;
             text-align: center;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
 
         .logo-img {
-            max-width: 250px;
+            max-width: 180px;
             height: auto;
-            margin-bottom: 10px;
         }
 
-        /* Section "Hero" */
-        .hero {
-            padding: 20px 0;
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #63b3ed, #90cdf4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .main-nav a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 600;
+            padding: 5px 0;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .main-nav a:hover {
+            color: var(--color-secondary);
+            border-bottom-color: var(--color-secondary);
         }
 
-        /* Grille des offres (maintenant une seule colonne) */
+        /* --- Mise en page principale --- */
         .offers-grid {
             display: grid;
             grid-template-columns: 1fr; /* Une seule colonne puisque seulement une offre restante */
@@ -63,40 +95,36 @@
             padding: 10px 0;
         }
 
-        /* Carte d'offre */
         .offer-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 30px;
-            /* Styles pour l'effet de mise en avant */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure légère */
-            border-left: 5px solid #63b3ed; /* Liseré latéral plus épais et bleu */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Ombre plus prononcée */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 5px solid var(--color-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
         .offer-card::before {
-            /* Supprime le liseré supérieur existant pour privilégier le liseré latéral */
-            content: none; 
+            content: none;
         }
 
         .offer-card:hover {
-            transform: translateY(-8px); /* Légère élévation au survol */
-            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35); /* Ombre encore plus prononcée au survol */
-            border-left-color: #90cdf4; /* Changement de couleur du liseré au survol */
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+            border-left-color: var(--color-secondary);
         }
 
         .offer-title {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: #63b3ed;
+            color: var(--color-primary);
             font-weight: 600;
         }
         
-        /* Styles pour la note avec astérisque */
         .asterisk-note {
             font-size: 0.8em;
             opacity: 0.8;
@@ -104,39 +132,9 @@
             margin-bottom: 15px;
         }
 
-        .offer-price {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #90cdf4;
-            margin-top: 20px;
-            text-align: right;
-            opacity: 0.8;
-        }
-
         .offer-description {
             margin-bottom: 20px;
             opacity: 0.9;
-        }
-
-        .offer-features {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .offer-features li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-            opacity: 0.9;
-            font-size: 0.95em;
-        }
-
-        .offer-features li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #63b3ed;
-            font-weight: bold;
         }
 
         .offer-deliverables {
@@ -144,7 +142,7 @@
             padding: 15px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-            border-left: 3px solid #63b3ed;
+            border-left: 3px solid var(--color-primary);
         }
 
         .offer-deliverables ul {
@@ -164,18 +162,17 @@
             content: "→";
             position: absolute;
             left: 0;
-            color: #63b3ed;
+            color: var(--color-primary);
             font-weight: bold;
         }
-
+        
         .section-title {
             text-align: center;
             font-size: 2rem;
             margin-bottom: 40px;
-            color: #63b3ed;
+            color: var(--color-primary);
         }
 
-        /* Section Méthodologie */
         .methodology {
             background: rgba(255, 255, 255, 0.05);
             padding: 60px 20px;
@@ -191,7 +188,7 @@
             text-align: center;
             font-size: 1.2rem;
             font-weight: 400;
-            color: #90cdf4;
+            color: var(--color-secondary);
             opacity: 0.8;
             margin-bottom: 40px;
         }
@@ -206,13 +203,13 @@
             background: rgba(255, 255, 255, 0.05);
             padding: 25px;
             border-radius: 15px;
-            border-left: 4px solid #63b3ed;
+            border-left: 4px solid var(--color-primary);
         }
 
         .phase-timing {
             font-size: 0.85em;
             font-weight: 600;
-            color: #90cdf4;
+            color: var(--color-secondary);
             background-color: rgba(255, 255, 255, 0.1);
             padding: 4px 10px;
             border-radius: 15px;
@@ -221,7 +218,7 @@
         }
 
         .phase h3 {
-            color: #90cdf4;
+            color: var(--color-secondary);
             margin-bottom: 15px;
             font-size: 1.1rem;
         }
@@ -243,15 +240,14 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: #63b3ed;
+            color: var(--color-primary);
             font-weight: bold;
         }
-
-        /* Section Modalités de paiement */
+        
         .payment-terms {
             padding: 40px 0;
         }
-
+        
         .payment-options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -265,9 +261,9 @@
         }
 
         .payment-option h3 {
-            color: #90cdf4;
+            color: var(--color-secondary);
             margin-bottom: 15px;
-            border-bottom: 2px solid #63b3ed;
+            border-bottom: 2px solid var(--color-primary);
             padding-bottom: 10px;
             display: inline-block;
         }
@@ -276,26 +272,23 @@
             opacity: 0.9;
             font-size: 0.95em;
         }
-
+        
         .payment-option ul {
             list-style: none;
             padding-left: 0;
             margin-top: 15px;
         }
-
         .payment-option li {
             padding-left: 20px;
             position: relative;
         }
-
         .payment-option li::before {
             content: "✔";
             position: absolute;
             left: 0;
-            color: #63b3ed;
+            color: var(--color-primary);
         }
 
-        /* Pied de page */
         footer {
             text-align: center;
             padding: 40px 0;
@@ -303,13 +296,13 @@
             opacity: 0.7;
         }
 
-        /* Styles pour les appareils mobiles */
         @media (max-width: 768px) {
-            .logo {
-                font-size: 2rem;
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
             }
-            .hero h1 {
-                font-size: 2rem;
+            .main-nav ul {
+                gap: 1rem;
             }
             .offers-grid, .payment-options-grid {
                 grid-template-columns: 1fr;
@@ -319,138 +312,143 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="header-content container">
             <img src="logo.jpg" alt="Constellatio Web Marketing" class="logo-img" />
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#offre">L'Offre</a></li>
+                    <li><a href="#methodologie">Méthodologie</a></li>
+                    <li><a href="#paiement">Paiement</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
+    <main>
+        <section class="hero">
+            <div class="container">
             </div>
-    </section>
+        </section>
 
-    <section class="container">
-        <div class="offers-grid">
-            <div class="offer-card">
-                <h3 class="offer-title">Offre Visibilité marque/produit</h3>
-                <p class="offer-description"><strong>Objectif :</strong> positionner votre marque (ou votre produit) sur les IA génératives, pour augmenter sa visibilité*.</p>
-                <p class="asterisk-note">*en intervenant notamment sur les 4 critères E-E-A-T (Expérience, Expertise, Autorité, Fiabilité)</p>
-                
-                <div class="offer-deliverables">
-                    <strong>Audit et recommandations</strong>
-                    <ul>
-                        <li>Diagnostic de présence de la marque sur ChatGPT, Gemini, Perplexity et Claude</li>
-                        <li>État des lieux de présence de la marque</li>
-                        <li>Plan d'action de visibilité (recommandations d'actions site internet de la marque + écosystème digital)</li>
-                        <li>Analyse de notoriété et d'autorité externe (profil de liens et mentions)</li>
-                    </ul>
-                    <strong style="display: block; margin-top: 15px;">Livrables</strong>
-                    <ul>
-                        <li>Graphe de connaissances (objets-clés de l'entreprise)</li>
-                        <li>Table de propriétés des objets de connaissance</li>
-                        <li>10 modèles de recherche utilisateur (prompts)</li>
-                        <li>Portefeuille d'actifs GEO mobilisables immédiatement :
-                            <ul style="margin-left: 20px; margin-top: 5px;">
-                                <li>Micro-contenus en langue naturelle</li>
-                                <li>Indications de balisage HTML</li>
-                                <li>Données structurées Schema.org (scripts JSON-LD)</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p style="margin-top: 10px;"><strong>Modalités</strong></p>
-                    <ul>
-                        <li>Réunion de présentation stratégique GEO qui inclut la présentation des livrables, les modalités d’insertion technique, ainsi que l'ordre des actions tactiques à mener.</li>
-                    </ul>
+        <section class="container" id="offre">
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <h3 class="offer-title">Offre Visibilité marque/produit</h3>
+                    <p class="offer-description"><strong>Objectif :</strong> positionner votre marque (ou votre produit) sur les IA génératives, pour augmenter sa visibilité*.</p>
+                    <p class="asterisk-note">*en intervenant notamment sur les 4 critères E-E-A-T (Expérience, Expertise, Autorité, Fiabilité)</p>
+                                    
+                    <div class="offer-deliverables">
+                        <strong>Audit et recommandations</strong>
+                        <ul>
+                            <li>Diagnostic de présence de la marque sur ChatGPT, Gemini, Perplexity et Claude</li>
+                            <li>État des lieux de présence de la marque</li>
+                            <li>Plan d'action de visibilité (recommandations d'actions site internet de la marque + écosystème digital)</li>
+                            <li>Analyse de notoriété et d'autorité externe (profil de liens et mentions)</li>
+                        </ul>
+                        <strong style="display: block; margin-top: 15px;">Livrables</strong>
+                        <ul>
+                            <li>Graphe de connaissances (objets-clés de l'entreprise)</li>
+                            <li>Table de propriétés des objets de connaissance</li>
+                            <li>10 modèles de recherche utilisateur (prompts)</li>
+                            <li>Portefeuille d'actifs GEO mobilisables immédiatement :
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Micro-contenus en langue naturelle</li>
+                                    <li>Indications de balisage HTML</li>
+                                    <li>Données structurées Schema.org (scripts JSON-LD)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>Modalités</strong></p>
+                        <ul>
+                            <li>Réunion de présentation stratégique GEO qui inclut la présentation des livrables, les modalités d’insertion technique, ainsi que l'ordre des actions tactiques à mener.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="methodology">
-        <div class="container">
-            <h2 class="section-title">Méthodologie - Offre Stratégie GEO</h2>
-            <h3 class="timeline-title">Déroulé prévisionnel sur 6 semaines</h3>
-            <div class="phases">
-                <div class="phase">
-                    <div class="phase-timing">Semaines 1 à 3</div>
-                    <h3>Phase 1 : modélisation ontologique et interface sémantique</h3>
-                    <ul>
-                        <li>Cartographie des entités nommées : identification des objets de connaissance d'intérêt</li>
-                        <li>Profils d'entités : caractérisation fine de chaque entité</li>
-                        <li>Schéma relationnel : identification des relations sémantiques entre entités</li>
-                        <li>Singularités : détermination des traits distinctifs et signaux différenciants</li>
-                        <li>Recensement des chiffres-clés et données quantifiables</li>
-                        <li>Référentiel verbal : constitution d'un lexique thématique et de mots-clés</li>
-                    </ul>
+        <section class="methodology" id="methodologie">
+            <div class="container">
+                <h2 class="section-title">Méthodologie - Offre Stratégie GEO</h2>
+                <h3 class="timeline-title">Déroulé prévisionnel sur 6 semaines</h3>
+                <div class="phases">
+                    <div class="phase">
+                        <div class="phase-timing">Semaines 1 à 3</div>
+                        <h3>Phase 1 : modélisation ontologique et interface sémantique</h3>
+                        <ul>
+                            <li>Cartographie des entités nommées : identification des objets de connaissance d'intérêt</li>
+                            <li>Profils d'entités : caractérisation fine de chaque entité</li>
+                            <li>Schéma relationnel : identification des relations sémantiques entre entités</li>
+                            <li>Singularités : détermination des traits distinctifs et signaux différenciants</li>
+                            <li>Recensement des chiffres-clés et données quantifiables</li>
+                            <li>Référentiel verbal : constitution d'un lexique thématique et de mots-clés</li>
+                        </ul>
+                    </div>
+                    <div class="phase">
+                        <div class="phase-timing">Semaine 4</div>
+                        <h3>Phase 2 : identification de thématiques-clés</h3>
+                        <ul>
+                            <li>Audit complet des thématiques métiers</li>
+                            <li>Exploration des thématiques afférentes aux IA génératives</li>
+                            <li>Cartographie des sujets à fort potentiel pour le positionnement GEO</li>
+                        </ul>
+                    </div>
+                    <div class="phase">
+                        <div class="phase-timing">Semaine 5</div>
+                        <h3>Phase 3 : analyse de présence IA vs concurrence</h3>
+                        <ul>
+                            <li>Analyse de visibilité dans les réponses génératives (LLM)</li>
+                            <li>Audit de présence sur sujets-clés métier</li>
+                            <li>Identification des lacunes et opportunités de contenu</li>
+                            <li>Benchmark concurrentiel IA : positionnement vs. 3 concurrents</li>
+                            <li>Analyse de sentiment : tonalité des mentions dans les réponses génératives</li>
+                        </ul>
+                    </div>
+                    <div class="phase">
+                        <div class="phase-timing">Semaine 6</div>
+                        <h3>Phase 4 : modélisation des prompts utilisateurs</h3>
+                        <ul>
+                            <li>Analyse des intentions de recherche et des questions-types des cibles</li>
+                            <li>Identification des schémas récurrents et des facteurs clés dans les prompts</li>
+                            <li>Extraction des paramètres structurants (besoins, contexte, persona...)</li>
+                            <li>Création de modèles de prompts représentatifs des requêtes de vos cibles</li>
+                        </ul>
+                    </div>
+                    <div class="phase">
+                        <div class="phase-timing">Semaine 6</div>
+                        <h3>Phase 5 : élaboration de la stratégie GEO</h3>
+                        <ul>
+                            <li>Rapport stratégique GEO complet</li>
+                            <li>Feuille de route et plan d'action priorisé</li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="phase">
-                    <div class="phase-timing">Semaine 4</div>
-                    <h3>Phase 2 : identification de thématiques-clés</h3>
-                    <ul>
-                        <li>Audit complet des thématiques métiers</li>
-                        <li>Exploration des thématiques afférentes aux IA génératives</li>
-                        <li>Cartographie des sujets à fort potentiel pour le positionnement GEO</li>
-                    </ul>
-                </div>
-                
-                <div class="phase">
-                    <div class="phase-timing">Semaine 5</div>
-                    <h3>Phase 3 : analyse de présence IA vs concurrence</h3>
-                    <ul>
-                        <li>Analyse de visibilité dans les réponses génératives (LLM)</li>
-                        <li>Audit de présence sur sujets-clés métier</li>
-                        <li>Identification des lacunes et opportunités de contenu</li>
-                        <li>Benchmark concurrentiel IA : positionnement vs. 3 concurrents</li>
-                        <li>Analyse de sentiment : tonalité des mentions dans les réponses génératives</li>
-                    </ul>
-                </div>
-                
-                <div class="phase">
-                    <div class="phase-timing">Semaine 6</div>
-                    <h3>Phase 4 : modélisation des prompts utilisateurs</h3>
-                    <ul>
-                        <li>Analyse des intentions de recherche et des questions-types des cibles</li>
-                        <li>Identification des schémas récurrents et des facteurs clés dans les prompts</li>
-                        <li>Extraction des paramètres structurants (besoins, contexte, persona...)</li>
-                        <li>Création de modèles de prompts représentatifs des requêtes de vos cibles</li>
-                    </ul>
-                </div>
+            </div>
+        </section>
 
-                <div class="phase">
-                    <div class="phase-timing">Semaine 6</div>
-                    <h3>Phase 5 : élaboration de la stratégie GEO</h3>
+        <section class="payment-terms container" id="paiement">
+            <h2 class="section-title">Modalités de paiement</h2>
+            <div class="payment-options-grid">
+                <div class="payment-option">
+                    <h3>Projet standard</h3>
+                    <p>L'offre Stratégie GEO.</p>
                     <ul>
-                        <li>Rapport stratégique GEO complet</li>
-                        <li>Feuille de route et plan d'action priorisé</li>
+                        <li>Acompte d'un tiers à la signature.</li>
+                        <li>Solde à la livraison finale des livrables.</li>
+                    </ul>
+                </div>
+                <div class="payment-option">
+                    <h3>Projet sur mesure</h3>
+                    <p>Pour les projets d'une durée supérieure à 6 semaines.</p>
+                    <ul>
+                        <li>Un premier tiers à la signature.</li>
+                        <li>Un second tiers à mi-parcours.</li>
+                        <li>Le solde à la livraison finale.</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="payment-terms container">
-        <h2 class="section-title">Modalités de paiement</h2>
-        <div class="payment-options-grid">
-            <div class="payment-option">
-                <h3>Projet standard</h3>
-                <p>L'offre Stratégie GEO.</p>
-                <ul>
-                    <li>Acompte d'un tiers à la signature.</li>
-                    <li>Solde à la livraison finale des livrables.</li>
-                </ul>
-            </div>
-            <div class="payment-option">
-                <h3>Projet sur mesure</h3>
-                <p>Pour les projets d'une durée supérieure à 6 semaines.</p>
-                <ul>
-                    <li>Un premier tiers à la signature.</li>
-                    <li>Un second tiers à mi-parcours.</li>
-                    <li>Le solde à la livraison finale.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
