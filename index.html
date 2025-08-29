@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offres Stratégie GEO - Constellatio Web Marketing</title>
     <style>
+        /* Styles de base pour toute la page */
         * {
             margin: 0;
             padding: 0;
@@ -25,6 +26,7 @@
             padding: 0 20px;
         }
 
+        /* En-tête de la page */
         header {
             padding: 40px 0;
             text-align: center;
@@ -39,6 +41,7 @@
             margin-bottom: 10px;
         }
 
+        /* Section "Hero" */
         .hero {
             padding: 20px 0;
         }
@@ -52,39 +55,38 @@
             background-clip: text;
         }
 
+        /* Grille des offres (maintenant une seule colonne) */
         .offers-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr; /* Une seule colonne puisque seulement une offre restante */
             gap: 30px;
             padding: 10px 0;
         }
 
+        /* Carte d'offre */
         .offer-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* Styles pour l'effet de mise en avant */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure légère */
+            border-left: 5px solid #63b3ed; /* Liseré latéral plus épais et bleu */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Ombre plus prononcée */
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
         .offer-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #63b3ed, #90cdf4);
-            border-radius: 20px 20px 0 0;
+            /* Supprime le liseré supérieur existant pour privilégier le liseré latéral */
+            content: none; 
         }
 
         .offer-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: #63b3ed;
+            transform: translateY(-8px); /* Légère élévation au survol */
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35); /* Ombre encore plus prononcée au survol */
+            border-left-color: #90cdf4; /* Changement de couleur du liseré au survol */
         }
 
         .offer-title {
@@ -92,6 +94,14 @@
             margin-bottom: 15px;
             color: #63b3ed;
             font-weight: 600;
+        }
+        
+        /* Styles pour la note avec astérisque */
+        .asterisk-note {
+            font-size: 0.8em;
+            opacity: 0.8;
+            margin-top: 5px;
+            margin-bottom: 15px;
         }
 
         .offer-price {
@@ -157,7 +167,7 @@
             color: #63b3ed;
             font-weight: bold;
         }
-        
+
         .section-title {
             text-align: center;
             font-size: 2rem;
@@ -165,6 +175,7 @@
             color: #63b3ed;
         }
 
+        /* Section Méthodologie */
         .methodology {
             background: rgba(255, 255, 255, 0.05);
             padding: 60px 20px;
@@ -235,11 +246,12 @@
             color: #63b3ed;
             font-weight: bold;
         }
-        
+
+        /* Section Modalités de paiement */
         .payment-terms {
             padding: 40px 0;
         }
-        
+
         .payment-options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -264,16 +276,18 @@
             opacity: 0.9;
             font-size: 0.95em;
         }
-        
+
         .payment-option ul {
             list-style: none;
             padding-left: 0;
             margin-top: 15px;
         }
+
         .payment-option li {
-             padding-left: 20px;
-             position: relative;
+            padding-left: 20px;
+            position: relative;
         }
+
         .payment-option li::before {
             content: "✔";
             position: absolute;
@@ -281,7 +295,7 @@
             color: #63b3ed;
         }
 
-
+        /* Pied de page */
         footer {
             text-align: center;
             padding: 40px 0;
@@ -289,6 +303,7 @@
             opacity: 0.7;
         }
 
+        /* Styles pour les appareils mobiles */
         @media (max-width: 768px) {
             .logo {
                 font-size: 2rem;
@@ -311,28 +326,29 @@
 
     <section class="hero">
         <div class="container">
-        </div>
+            </div>
     </section>
 
     <section class="container">
         <div class="offers-grid">
             <div class="offer-card">
-                <h3 class="offer-title">Offre Stratégie GEO</h3>
-                <p class="offer-description"><strong>Objectif :</strong> Établir la marque comme une entité d'autorité pour les IA et la positionner comme une source de réponse de premier plan sur les sujets stratégiques.</p>
+                <h3 class="offer-title">Offre Visibilité marque/produit</h3>
+                <p class="offer-description"><strong>Objectif :</strong> positionner votre marque (ou votre produit) sur les IA génératives, pour augmenter sa visibilité*.</p>
+                <p class="asterisk-note">*en intervenant notamment sur les 4 critères E-E-A-T (Expérience, Expertise, Autorité, Fiabilité)</p>
                 
                 <div class="offer-deliverables">
-                    <strong>Livrables d'audit</strong>
+                    <strong>Audit et recommandations</strong>
                     <ul>
-                        <li>Diagnostic de présence IA (audit de la visibilité de la marque sur ChatGPT, Gemini, Perplexity et Claude)</li>
-                        <li>État des lieux GEO</li>
-                        <li>Plan d'actions GEO</li>
+                        <li>Diagnostic de présence de la marque sur ChatGPT, Gemini, Perplexity et Claude</li>
+                        <li>État des lieux de présence de la marque</li>
+                        <li>Plan d'action de visibilité (recommandations d'actions site internet de la marque + écosystème digital)</li>
                         <li>Analyse de notoriété et d'autorité externe (profil de liens et mentions)</li>
                     </ul>
-                    <strong style="display: block; margin-top: 15px;">Livrables techniques</strong>
+                    <strong style="display: block; margin-top: 15px;">Livrables</strong>
                     <ul>
                         <li>Graphe de connaissances (objets-clés de l'entreprise)</li>
                         <li>Table de propriétés des objets de connaissance</li>
-                        <li>Modèles de prompts utilisateurs (personas)</li>
+                        <li>10 modèles de recherche utilisateur (prompts)</li>
                         <li>Portefeuille d'actifs GEO mobilisables immédiatement :
                             <ul style="margin-left: 20px; margin-top: 5px;">
                                 <li>Micro-contenus en langue naturelle</li>
@@ -341,25 +357,11 @@
                             </ul>
                         </li>
                     </ul>
-                    <p style="margin-top: 10px;"><strong>Présentation</strong></p>
+                    <p style="margin-top: 10px;"><strong>Modalités</strong></p>
                     <ul>
-                        <li>Réunion de présentation des livrables aux parties prenantes</li>
+                        <li>Réunion de présentation stratégique GEO qui inclut la présentation des livrables, les modalités d’insertion technique, ainsi que l'ordre des actions tactiques à mener.</li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="offer-card">
-                <h3 class="offer-title">Offre GEO complète</h3>
-                <p class="offer-description">Offre sur mesure incluant l'ensemble des volets précédents et allant jusqu'à la prise en main complète de la stratégie GEO.</p>
-                <ul class="offer-features">
-                    <li>Définition et pilotage de la stratégie de présence IA de l'entreprise</li>
-                    <li>Alignement des parties prenantes (Direction, SEO, Data, MarCom, Produit…)</li>
-                    <li>Gestion complète de la roadmap GEO</li>
-                    <li>Interfaçage avec les équipes internes et coordination des prestataires externes (technique, éditorial, juridique…)</li>
-                    <li>Suivi exécutif et reporting stratégique</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Objectif :</strong> garantir une présence forte, structurée et cohérente dans les écosystèmes d'intelligence artificielle, en intégrant tous les leviers de notoriété et d'autorité.</p>
-                <div class="offer-price">Prix : sur devis</div>
             </div>
         </div>
     </section>
@@ -441,7 +443,7 @@
             <div class="payment-option">
                 <h3>Projet sur mesure</h3>
                 <p>Pour les projets d'une durée supérieure à 6 semaines.</p>
-                 <ul>
+                <ul>
                     <li>Un premier tiers à la signature.</li>
                     <li>Un second tiers à mi-parcours.</li>
                     <li>Le solde à la livraison finale.</li>
